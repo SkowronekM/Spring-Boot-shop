@@ -18,7 +18,7 @@
     <div class="container">
             <ul class="menu">
                 <li class="menu-logo-container">
-                    <a href="#">
+                    <a href="#" th:href="@{/}">
                         <i class="fa-brands fa-shopify fa-xl"></i> Storeez
                     </a>
                 </li>
@@ -60,54 +60,54 @@
 
 <!-- POLECANE PRODUKTY -->
     <section class="featured-products">
-        <h2 class="list-heading">Polecane produkty</h2>
-        <div class="product-grid">
-            <div class="product-item">
+        <h2 class="list-heading" th:text="${heading}">Polecane produkty</h2>
+        <ul class="product-grid" th:remove="all-but-first">
+            <li class="product-item" th:each="cloth: ${clothes}">
                 <img src="../static/img/product1.png" alt="Bluza" class="image-item">
                 <a href="#">
-                    <h3 class="name-of-item">Bluza</h3>
-                    <p class="product-desc">Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.</p>
-                    <p class="amount-product">299zł</p>
-                    <button class="add-to-cart">Dodaj do koszyka</button>
+                    <h3 class="name-of-item" th:text="${cloth.name+ ' ' +cloth.brand}">Bluza</h3>
+                    <p class="product-desc" th:text="${cloth.description}">Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.</p>
+                    <p class="product-price" th:text="|${cloth.price}zł|">299zł</p>
+                    <button class="add-to-cart">View details</button>
                 </a>
-            </div>
-            <div class="product-item">
+            </li>
+            <li class="product-item">
                 <img src="../static/img/product1.jpg" alt="Koszulka" class="image-item">
                 <a href="#">
                     <h3 class="name-of-item">Koszulka</h3>
                     <p class="product-desc">Wygodna koszulka z miękkiego materiału.</p>
-                    <p class="amount-product">199zł</p>
-                    <button class="add-to-cart">Dodaj do koszyka</button>
+                    <p class="product-price">199zł</p>
+                    <button class="add-to-cart">View details</button>
                 </a>
-            </div>
-            <div class="product-item">
+            </li>
+            <li class="product-item">
                 <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
                 <a href="#">
                     <h3 class="name-of-item">Spodnie</h3>
                     <p class="product-desc">Modne spodnie na każdą okazję1.</p>
-                    <p class="amount-product">229zł</p>
-                    <button class="add-to-cart">Dodaj do koszyka</button>
+                    <p class="product-price">229zł</p>
+                    <button class="add-to-cart">View details</button>
                 </a>
-            </div>
-            <div class="product-item">
+            </li>
+            <li class="product-item">
                 <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
                 <a href="#">
                     <h3 class="name-of-item">Spodnie</h3>
                     <p class="product-desc">Modne spodnie na każdą okazję2.</p>
-                    <p class="amount-product">200zł</p>
-                    <button class="add-to-cart">Dodaj do koszyka</button>
+                    <p class="product-price">200zł</p>
+                    <button class="add-to-cart">View details</button>
                 </a>
-            </div>
-            <div class="product-item">
+            </li>
+            <li class="product-item">
                 <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
                 <a href="#">
                     <h3 class="name-of-item">Spodnie</h3>
                     <p class="product-desc">Modne spodnie na każdą okazję3.</p>
-                    <p class="amount-product">299zł</p>
-                    <button class="add-to-cart">Dodaj do koszyka</button>
+                    <p class="product-price">299zł</p>
+                    <button class="add-to-cart">View details</button>
                 </a>
-            </div>
-        </div>
+            </li>
+        </ul>
     </section>
 
 </main>
