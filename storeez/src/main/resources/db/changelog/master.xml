@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Create template sql -->
+    <include file="0001_create_table_category.xml" relativeToChangelogFile="true"></include>
+    <include file="0002_create_table_clothes.xml" relativeToChangelogFile="true"></include>
+
+    <!-- Create data -->
+    <include file="../testdata/0001_category.sql" relativeToChangelogFile="true" context="dev"></include>
+    <include file="../testdata/0002_clothes.sql" relativeToChangelogFile="true" context="dev"></include>
+
+</databaseChangeLog>
