@@ -18,10 +18,10 @@
             <column name="stock" type="int">
                 <constraints nullable="false"/>
             </column>
-            <column name="category_id" type="bigint">
+            <column name="subcategory_id" type="bigint">
                 <constraints nullable="false"
                              foreignKeyName="fk_clothes_category"
-                             referencedTableName="category"
+                             referencedTableName="subcategory"
                              referencedColumnNames="id"></constraints>
             </column>
             <column name="promoted" type="boolean"></column>
