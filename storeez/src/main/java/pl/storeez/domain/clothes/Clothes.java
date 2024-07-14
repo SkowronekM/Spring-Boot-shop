@@ -1,7 +1,8 @@
 package pl.storeez.domain.clothes;
 
 import jakarta.persistence.*;
-import pl.storeez.domain.category.Category;
+import pl.storeez.domain.categories.Category;
+import pl.storeez.domain.categories.Subcategory;
 
 @Entity
 public class Clothes {
@@ -15,8 +16,8 @@ public class Clothes {
     private int stock;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "id")
-    private Category category;
+    @JoinColumn(name = "subcategory_id")
+    private Subcategory subcategory;
 
     private boolean promoted;
     private String size;
@@ -79,12 +80,12 @@ public class Clothes {
         this.stock = stock;
     }
 
-    public Category getCategory() {
-        return category;
+    public Subcategory getSubcategory() {
+        return subcategory;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setSubcategory(Subcategory subcategory) {
+        this.subcategory = subcategory;
     }
 
     public String getSize() {
