@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    color: white;
+    /*color: white;*/
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 
 a {
     text-decoration: none;
-    color: gray;
+    color: black;
 }
 
 .container {
@@ -27,7 +27,7 @@ a {
 
 .list-heading {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: #333;
 }
 
@@ -37,6 +37,8 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
+    background-color: dodgerblue;
 }
 
 /* hide items menu */
@@ -57,6 +59,10 @@ a {
     display: block;
     padding: 15px 30px;
     font-size: 20px;
+}
+
+.fa-brands {
+    color: white;
 }
 
 /* Dropdown menu Clothes*/
@@ -106,6 +112,7 @@ a {
     padding: 8px;
     text-align: center;
     background-color: #333;
+    color: white;
 }
 
 /* JUMBO */
@@ -150,6 +157,7 @@ a {
     text-align: center;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 1.0);
     max-width: 200px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -189,16 +197,148 @@ a {
     color: #666;
 }
 
-
 /*cena*/
-.amount-product {
+.product-price {
     color: green;
     margin-bottom: 1rem;
     font-weight: bold;
     font-size: 20px;
     font-style: oblique;
+    align-self: center;
 }
 
+
+
+
+
+/* Sekcja Pojedynczy Produkt */
+.single-product {
+    padding: 2rem;
+}
+
+.single-product-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.single-product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.single-product-image {
+    max-width: 300px;
+    height: auto;
+}
+
+.single-product-info {
+    min-width: 350px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin: 0.5rem 0;
+}
+
+.single-product-name {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    align-self: center;
+}
+
+.single-product-desc {
+    margin-bottom: 1rem;
+    max-width: 70%;
+    align-self: center;
+    text-align: center;
+}
+
+.single-product-brand {
+    margin-bottom: 0.5rem;
+}
+
+.single-product-meta p {
+    margin: 0.5rem 0;
+}
+
+.single-product-status-available {
+    color: green;
+    font-weight: bold;
+}
+
+.single-product-status-unavailable {
+    color: red;
+    font-weight: bold;
+}
+
+.single-product-category {
+    font-weight: bold;
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+.single-product-actions {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.single-quantity {
+    width: 60px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.single-original-price {
+    text-decoration: line-through;
+    color: red;
+    margin-left: 1rem;
+}
+
+.single-discount {
+    color: green;
+    margin-left: 1rem;
+}
+
+.single-product-actions {
+    margin: 1rem 0;
+    align-self: center;
+}
+
+.single-add-to-cart {
+    background-color: #e94560;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.single-add-to-cart:hover {
+    background-color: #d73f5c;
+}
+
+
+/* ERROR PAGE */
+.error-container {
+    margin: 32px auto;
+}
+.error-container > * {
+    display: block;
+    text-align: center;
+}
+.error-header,
+.error-icon {
+    font-size: 2rem;
+    margin: 16px 0;
+}
 
 
 
@@ -218,8 +358,7 @@ a {
         flex: 1;
     }
 
-    .main-content,
-    .menu {
+    .main-content {
         align-self: center;
         width: 960px;
     }
@@ -229,6 +368,25 @@ a {
         top: 100%;
         left: 0;
     }
+
+    .single-product-image {
+        max-width: 400px;
+        height: auto;
+    }
+
+    .single-product-name {
+        align-self: normal;
+    }
+
+    .single-product-desc {
+        align-self: normal;
+        text-align: left;
+    }
+
+    .single-product-actions {
+        align-self: normal;
+    }
+
 }
 
 
