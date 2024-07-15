@@ -29,4 +29,12 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Subcategory> getSubcategories() {
+        return subcategories;
+    }
+
+    public void setSubcategories(List<Subcategory> subcategories) {
+        this.subcategories = subcategories;
+    }
 }
