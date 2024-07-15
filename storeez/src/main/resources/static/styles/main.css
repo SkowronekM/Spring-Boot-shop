@@ -184,6 +184,20 @@ a {
     background-color: #555;
 }
 
+/* BUTTON VIEW-DETAILS */
+.view-details {
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-details:hover {
+    background-color: #555;
+}
+
 
 /* PRODUKTY */
 

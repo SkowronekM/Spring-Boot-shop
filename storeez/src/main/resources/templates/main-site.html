@@ -14,7 +14,7 @@
             <ul class="product-grid" th:remove="all-but-first">
                 <li class="product-item" th:each="cloth: ${clothes}">
                     <img src="../static/img/product1.png" alt="Bluza" th:alt="${cloth.name + ' image'}" class="image-item">
-                    <a href="#">
+                    <a href="#" th:href="@{/clothes/{subcategory}/{id}(subcategory=${cloth.subcategory}, id=${cloth.id})}">
                         <h3 class="name-of-item" th:text="${cloth.name+ ' ' +cloth.brand}">Bluza</h3>
                         <p class="product-desc" th:text="${cloth.description}">Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.</p>
                         <p class="product-price" th:text="|${cloth.price}zł|">299zł</p>
