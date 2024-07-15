@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Storeez</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <script defer src="../static/scripts/common.js" th:src="@{/scripts/common.js}"></script>
+    <link rel="stylesheet" href="../static/styles/main.css" th:href="@{/styles/main.css}">
+</head>
+<body>
+<div class="container">
+    <ul class="menu">
+        <li class="menu-logo-container">
+            <a th:href="@{/}">
+                <i class="fa-brands fa-shopify fa-xl"></i> Storeez
+            </a>
+        </li>
+        <li class="menu-toggle">
+            <a href="#">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </li>
+        <li class="menu-item dropdown menu-toggle2">
+            <a href="#" class="dropbtn">Clothes <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-content">
+                <li class="dropdown-menu-item"><a href="#">T-shirts</a></li>
+                <li><a href="#">Sweatshirts</a></li>
+                <li><a href="#">Trousers</a></li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#">Books</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Perfumes</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Cart</a>
+        </li>
+        <li class="menu-item">
+            <a href="#">Sign in</a>
+        </li>
+    </ul>
+
+    <header class="jumbo">
+        <h1 class="jumbo-header">Storeez</h1>
+        <p class="jumbo-description">
+            Witamy w naszym sklepie internetowym! <br>Przeglądaj nasze produkty i znajdź coś dla siebie.
+        </p>
+    </header>
+
+    <main class="main-content" layout:fragment="content">
+        <!-- Content will be included here -->
+    </main>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2024 Storeez - Michał Skowronek</p>
+</footer>
+</body>
+</html>

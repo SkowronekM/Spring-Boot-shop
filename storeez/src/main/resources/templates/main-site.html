@@ -1,123 +1,66 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Storeez</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <script defer src="../static/scripts/common.js" th:src="@{/scripts/common.js}"></script>
-    <link rel="stylesheet" href="../static/styles/main.css" th:href="@{/styles/main.css}">
-</head>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <body>
-    <div class="container">
-            <ul class="menu">
-                <li class="menu-logo-container">
-                    <a href="#" th:href="@{/}">
-                        <i class="fa-brands fa-shopify fa-xl"></i> Storeez
-                    </a>
-                </li>
-                <li class="menu-toggle">
+<div class="container">
+
+    <main class="main-content" layout:fragment="content">
+
+    <!-- POLECANE PRODUKTY -->
+        <section class="featured-products">
+            <h2 class="list-heading" th:text="${heading}">Polecane produkty</h2>
+            <ul class="product-grid" th:remove="all-but-first">
+                <li class="product-item" th:each="cloth: ${clothes}">
+                    <img src="../static/img/product1.png" alt="Bluza" th:alt="${cloth.name + ' image'}" class="image-item">
                     <a href="#">
-                        <i class="fa-solid fa-bars"></i>
+                        <h3 class="name-of-item" th:text="${cloth.name+ ' ' +cloth.brand}">Bluza</h3>
+                        <p class="product-desc" th:text="${cloth.description}">Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.</p>
+                        <p class="product-price" th:text="|${cloth.price}zł|">299zł</p>
+                        <button class="add-to-cart">View details</button>
                     </a>
                 </li>
-                <li class="menu-item dropdown menu-toggle2">
-                    <a href="#" class="dropbtn">Clothes <i class="fa fa-caret-down"></i></a>
-                    <ul class="dropdown-content">
-                        <li class="dropdown-menu-item"><a href="#">T-shirts</a></li>
-                        <li><a href="#">Sweatshirts</a></li>
-                        <li><a href="#">Trousers</a></li>
-                    </ul>
+                <li class="product-item">
+                    <img src="../static/img/product1.jpg" alt="Koszulka" class="image-item">
+                    <a href="#">
+                        <h3 class="name-of-item">Koszulka</h3>
+                        <p class="product-desc">Wygodna koszulka z miękkiego materiału.</p>
+                        <p class="product-price">199zł</p>
+                        <button class="add-to-cart">View details</button>
+                    </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#">Books</a>
+                <li class="product-item">
+                    <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
+                    <a href="#">
+                        <h3 class="name-of-item">Spodnie</h3>
+                        <p class="product-desc">Modne spodnie na każdą okazję1.</p>
+                        <p class="product-price">229zł</p>
+                        <button class="add-to-cart">View details</button>
+                    </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#">Perfumes</a>
+                <li class="product-item">
+                    <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
+                    <a href="#">
+                        <h3 class="name-of-item">Spodnie</h3>
+                        <p class="product-desc">Modne spodnie na każdą okazję2.</p>
+                        <p class="product-price">200zł</p>
+                        <button class="add-to-cart">View details</button>
+                    </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#">Cart</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">Sign in</a>
+                <li class="product-item">
+                    <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
+                    <a href="#">
+                        <h3 class="name-of-item">Spodnie</h3>
+                        <p class="product-desc">Modne spodnie na każdą okazję3.</p>
+                        <p class="product-price">299zł</p>
+                        <button class="add-to-cart">View details</button>
+                    </a>
                 </li>
             </ul>
+        </section>
+    </main>
 
-<header class="jumbo">
-    <h1 class="jumbo-header">Storeez</h1>
-    <p class="jumbo-description">
-        Witamy w naszym sklepie internetowym! <br>Przeglądaj nasze produkty i znajdź coś dla siebie.
-    </p>
-</header>
-
-<main class="main-content">
-
-<!-- POLECANE PRODUKTY -->
-    <section class="featured-products">
-        <h2 class="list-heading" th:text="${heading}">Polecane produkty</h2>
-        <ul class="product-grid" th:remove="all-but-first">
-            <li class="product-item" th:each="cloth: ${clothes}">
-                <img src="../static/img/product1.png" alt="Bluza" class="image-item">
-                <a href="#">
-                    <h3 class="name-of-item" th:text="${cloth.name+ ' ' +cloth.brand}">Bluza</h3>
-                    <p class="product-desc" th:text="${cloth.description}">Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.Stylowa bluza na każdą okazję.</p>
-                    <p class="product-price" th:text="|${cloth.price}zł|">299zł</p>
-                    <button class="add-to-cart">View details</button>
-                </a>
-            </li>
-            <li class="product-item">
-                <img src="../static/img/product1.jpg" alt="Koszulka" class="image-item">
-                <a href="#">
-                    <h3 class="name-of-item">Koszulka</h3>
-                    <p class="product-desc">Wygodna koszulka z miękkiego materiału.</p>
-                    <p class="product-price">199zł</p>
-                    <button class="add-to-cart">View details</button>
-                </a>
-            </li>
-            <li class="product-item">
-                <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
-                <a href="#">
-                    <h3 class="name-of-item">Spodnie</h3>
-                    <p class="product-desc">Modne spodnie na każdą okazję1.</p>
-                    <p class="product-price">229zł</p>
-                    <button class="add-to-cart">View details</button>
-                </a>
-            </li>
-            <li class="product-item">
-                <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
-                <a href="#">
-                    <h3 class="name-of-item">Spodnie</h3>
-                    <p class="product-desc">Modne spodnie na każdą okazję2.</p>
-                    <p class="product-price">200zł</p>
-                    <button class="add-to-cart">View details</button>
-                </a>
-            </li>
-            <li class="product-item">
-                <img src="../img/product3.jpg" alt="Spodnie" class="image-item">
-                <a href="#">
-                    <h3 class="name-of-item">Spodnie</h3>
-                    <p class="product-desc">Modne spodnie na każdą okazję3.</p>
-                    <p class="product-price">299zł</p>
-                    <button class="add-to-cart">View details</button>
-                </a>
-            </li>
-        </ul>
-    </section>
-
-</main>
-
-
-<!-- STOPKA -->
-
-<footer class="footer">
-    <p>&copy; 2024 Storeez - Michał Skowronek</p>
-</footer>
 </div>
 </body>
 </html>
