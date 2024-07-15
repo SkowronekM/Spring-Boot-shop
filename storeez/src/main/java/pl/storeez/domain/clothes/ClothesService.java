@@ -24,4 +24,10 @@ public class ClothesService {
     public Optional<ClothesDto> findClothesById(long id) {
         return clothesRepository.findById(id).map(ClothesDtoMapper::map);
     }
+
+    public List<ClothesDto> findClothesByCategoryName(String category) {
+        return clothesRepository.findAllByCategoryNameIgnoreCase(category).stream()
+                .map(ClothesDtoMapper::map)
+                .toList();
+    }
 }
