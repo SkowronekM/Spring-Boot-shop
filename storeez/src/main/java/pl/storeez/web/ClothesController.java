@@ -19,8 +19,8 @@ public class ClothesController {
         this.clothesService = clothesService;
     }
 
-    @GetMapping("/clothes/{id}")
-    public String getClothes(@PathVariable long id, Model model) {
+    @GetMapping("/clothes/{subcategory}/{id}")
+    public String getClothes(@PathVariable String subcategory, @PathVariable long id, Model model) {
         ClothesDto clothes = clothesService.findClothesById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         model.addAttribute("clothes", clothes);
