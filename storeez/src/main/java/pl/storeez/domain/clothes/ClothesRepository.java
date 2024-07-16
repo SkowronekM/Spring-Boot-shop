@@ -12,4 +12,6 @@ public interface ClothesRepository extends CrudRepository<Clothes, Long> {
 
     @Query("SELECT c FROM Clothes c WHERE LOWER(c.subcategory.category.name) = LOWER(:categoryName)")
     List<Clothes> findAllByCategoryNameIgnoreCase(@Param("categoryName") String categoryName);
+
+    List<Clothes> findAllBySubcategoryNameIgnoreCase(String subcategoryName);
 }
