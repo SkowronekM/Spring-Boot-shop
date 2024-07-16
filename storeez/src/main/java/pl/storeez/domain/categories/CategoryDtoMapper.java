@@ -10,7 +10,7 @@ public class CategoryDtoMapper {
     static CategoryDto map(Category category) {
         List<SubcategoryDto> subcategoryDtos = category.getSubcategories()
                 .stream()
-                .map(subcategory -> new SubcategoryDto(subcategory.getId(), subcategory.getName()))
+                .map(subcategory -> new SubcategoryDto(subcategory.getId(), subcategory.getName(), subcategory.getCategory().getId()))
                 .collect(Collectors.toList());
 
         return new CategoryDto(
