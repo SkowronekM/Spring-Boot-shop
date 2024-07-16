@@ -354,6 +354,41 @@ a {
     margin: 16px 0;
 }
 
+/* ADMIN PANEL */
+
+.admin-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.admin-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.admin-card:hover {
+    background: #eef;
+    transform: translateY(-5px);
+}
+
+.admin-card i {
+    margin-bottom: 15px;
+}
+
+.admin-card h3 {
+    margin: 0;
+}
+
+
+
+
 
 
 /* RESPONSIVE */

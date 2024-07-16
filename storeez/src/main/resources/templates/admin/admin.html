@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Storeez - Admin panel</title>
+</head>
+<body>
+<div class="container">
+
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading">Admin Dashboard</h2>
+        <div class="admin-grid">
+            <a href="#" th:href="@{/admin/add-product}" class="admin-card">
+                <i class="fa fa-plus fa-2x"></i>
+                <h3>Add Product</h3>
+            </a>
+            <a href="#" th:href="@{/admin/category}" class="admin-card">
+                <i class="fa fa-folder-open fa-2x"></i>
+                <h3>Category</h3>
+            </a>
+            <a href="#" th:href="@{/admin/view-product}" class="admin-card">
+                <i class="fa fa-book fa-2x"></i>
+                <h3>View Product</h3>
+            </a>
+            <a href="#" th:href="@{/admin/orders}" class="admin-card">
+                <i class="fa fa-box fa-2x"></i>
+                <h3>Orders</h3>
+            </a>
+            <a href="#" th:href="@{/admin/user}" class="admin-card">
+                <i class="fa-solid fa-user-group fa-2x"></i>
+                <h3>Users</h3>
+            </a>
+            <a href="#" th:href="@{/admin/add-admin}" class="admin-card">
+                <i class="fa-solid fa-user-tie fa-2x"></i>
+                <h3>Admin</h3>
+            </a>
+        </div>
+    </main>
+
+</div>
+</body>
+</html>
