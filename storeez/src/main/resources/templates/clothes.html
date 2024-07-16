@@ -34,7 +34,7 @@
                         <p><b>Status: </b> <span class="single-product-status-unavailable" >Unavailable</span></p>
                         <p><b>Category: </b>
                             <a class="single-product-category"
-                               th:href="@{/category/{category}/{subcategory}(category=${clothes.category}, subcategory=${clothes.subcategory})}"
+                               th:href="@{/category/{category}/{subcategory}(category=${clothes.category}, subcategory=${clothes.subcategory+'s'})}"
                                th:text="${clothes.subcategory}">Sweatshirts</a>
                         </p>
                     </div>
