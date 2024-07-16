@@ -28,12 +28,12 @@
             </a>
         </li>
         <li class="menu-item dropdown menu-toggle2">
-            <a href="#" th:href="@{/clothes}" class="dropbtn">Clothes <i class="fa fa-caret-down"></i></a>
+            <a href="#" th:href="@{/category/clothes}" class="dropbtn">Clothes <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-content">
-                <li class="dropdown-menu-item"><a href="#" th:href="@{/clothes}">All</a></li>
-                <li><a href="#">T-shirts</a></li>
-                <li><a href="#">Sweatshirts</a></li>
-                <li><a href="#">Trousers</a></li>
+                <li class="dropdown-menu-item"><a href="#" th:href="@{/category/clothes}">All</a></li>
+                <li><a href="#" th:href="@{/category/clothes/t-shirts}">T-shirts</a></li>
+                <li><a href="#" th:href="@{/category/clothes/sweatshirts}">Sweatshirts</a></li>
+                <li><a href="#" th:href="@{/category/clothes/trousers}">Trousers</a></li>
             </ul>
         </li>
         <li class="menu-item">
@@ -44,6 +44,9 @@
         </li>
         <li class="menu-item">
             <a href="#">Cart</a>
+        </li>
+        <li class="menu-item">
+            <a href="#" th:href="@{/admin}">Admin panel</a>
         </li>
         <li class="menu-item">
             <a href="#">Sign in</a>
