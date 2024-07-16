@@ -3,10 +3,12 @@ package pl.storeez.domain.categories.dto;
 public class SubcategoryDto {
     private Long id;
     private String name;
+    private Long categoryId;
 
-    public SubcategoryDto(Long id, String name) {
+    public SubcategoryDto(Long id, String name, Long categoryId) {
         this.id = id;
         this.name = name;
+        this.categoryId = categoryId;
     }
 
     public Long getId() {
@@ -23,5 +25,13 @@ public class SubcategoryDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }
