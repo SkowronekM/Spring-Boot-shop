@@ -30,4 +30,10 @@ public class ClothesService {
                 .map(ClothesDtoMapper::map)
                 .toList();
     }
+
+    public List<ClothesDto> findClothesBySubcategoryName(String subcategory) {
+        return clothesRepository.findAllBySubcategoryNameIgnoreCase(subcategory).stream()
+                .map(ClothesDtoMapper::map)
+                .toList();
+    }
 }
