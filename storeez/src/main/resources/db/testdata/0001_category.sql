@@ -7,5 +7,5 @@ insert into category (name) values ('Perfumes');
 insert into subcategory (name, category_id) values ('T-shirt', 1);
 insert into subcategory (name, category_id) values ('Sweatshirt', 1);
 insert into subcategory (name, category_id) values ('Hoodie', 1);
-insert into subcategory (name, category_id) values ('Trousers', 1);
+insert into subcategory (name, category_id) values ('Trouser', 1);
 insert into subcategory (name, category_id) values ('Boots', 1);
