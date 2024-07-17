@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Add new subcategory</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading">Add new subcategory</h2>
+        <form th:action="@{/admin/add-subcategory}" th:object="${subcategory}" method="post">
+            <label for="name">Subcategory Name:</label>
+            <input type="text" id="name" th:field="*{name}" required>
+
+            <label for="category">Category:</label>
+            <select id="category" th:field="*{categoryId}" required>
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+
+            <button type="submit">Add subcategory</button>
+        </form>
+    </main>
+
+</div>
+
+</body>
+</html>
