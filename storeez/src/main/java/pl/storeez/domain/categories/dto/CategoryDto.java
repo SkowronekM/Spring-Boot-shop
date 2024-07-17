@@ -7,6 +7,9 @@ public class CategoryDto {
     private String name;
     private List<SubcategoryDto> subcategories;
 
+    public CategoryDto() {
+    }
+
     public CategoryDto(Long id, String name, List<SubcategoryDto> subcategories) {
         this.id = id;
         this.name = name;
