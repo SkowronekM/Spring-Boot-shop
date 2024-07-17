@@ -27,6 +27,7 @@ a {
 
 .list-heading {
     text-align: center;
+    margin-top: 1rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -386,9 +387,14 @@ a {
     margin: 0;
 }
 
-
-
-
+.notification-bar {
+    text-align: center;
+    background-color: dodgerblue;
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    width: auto;
+    font-weight: bold;
+}
 
 
 /* RESPONSIVE */
@@ -435,7 +441,6 @@ a {
     .single-product-actions {
         align-self: normal;
     }
-
 }
 
 
