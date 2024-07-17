@@ -23,7 +23,7 @@ public class CategoryManagementController {
         CategoryDto category = new CategoryDto();
         model.addAttribute("category", category);
 
-        return "admin/category-form";
+        return "admin/add-category-form";
     }
 
     @PostMapping("/add-category")
