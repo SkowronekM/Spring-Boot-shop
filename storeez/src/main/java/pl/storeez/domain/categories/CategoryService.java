@@ -3,7 +3,6 @@ package pl.storeez.domain.categories;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.storeez.domain.categories.dto.CategoryDto;
-import pl.storeez.domain.categories.dto.SubcategoryDto;
 
 import java.util.Optional;
 
@@ -17,6 +16,10 @@ public class CategoryService {
 
     public Optional<CategoryDto> findCategoryByName(String name) {
         return categoryRepository.findByNameIgnoreCase(name).map(CategoryDtoMapper::map);
+    }
+
+    public Iterable<Category> getAllCategories(){
+        return categoryRepository.findAll();
     }
 
     @Transactional
