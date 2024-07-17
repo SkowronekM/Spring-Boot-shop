@@ -5,6 +5,9 @@ public class SubcategoryDto {
     private String name;
     private Long categoryId;
 
+    public SubcategoryDto() {
+    }
+
     public SubcategoryDto(Long id, String name, Long categoryId) {
         this.id = id;
         this.name = name;
