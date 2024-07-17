@@ -10,15 +10,22 @@
 <div class="container">
 
     <main class="main-content" layout:fragment="content">
+        <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+            Notifications
+        </p>
         <h2 class="list-heading">Admin Dashboard</h2>
         <div class="admin-grid">
             <a href="#" th:href="@{/admin/add-product}" class="admin-card">
                 <i class="fa fa-plus fa-2x"></i>
                 <h3>Add Product</h3>
             </a>
-            <a href="#" th:href="@{/admin/category}" class="admin-card">
+            <a href="#" th:href="@{/admin/add-category}" class="admin-card">
                 <i class="fa fa-folder-open fa-2x"></i>
-                <h3>Category</h3>
+                <h3>Add Category</h3>
+            </a>
+            <a href="#" th:href="@{/admin/add-subcategory}" class="admin-card">
+                <i class="fa fa-folder-open fa-2x"></i>
+                <h3>Add Subcategory</h3>
             </a>
             <a href="#" th:href="@{/admin/view-product}" class="admin-card">
                 <i class="fa fa-book fa-2x"></i>
