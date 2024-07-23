@@ -1,13 +1,15 @@
 package pl.storeez.domain.clothes.dto;
 
-import pl.storeez.domain.categories.Subcategory;
+import java.math.BigDecimal;
 
 public class ClothesDto {
     private Long id;
     private String name;
     private String brand;
     private String description;
-    private float price;
+    private BigDecimal price;
+    private int discount;
+    private BigDecimal priceAfterDiscount;
     private int stock;
     private String category;
     private String subcategory;
@@ -16,12 +18,17 @@ public class ClothesDto {
     private String color;
     private String material;
 
-    public ClothesDto(Long id, String name, String brand, String description, float price, int stock, String category, String subcategory, boolean promoted, String size, String color, String material) {
+    public ClothesDto() {
+    }
+
+    public ClothesDto(Long id, String name, String brand, String description, BigDecimal price, int discount, BigDecimal priceAfterDiscount, int stock, String category, String subcategory, boolean promoted, String size, String color, String material) {
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.description = description;
         this.price = price;
+        this.discount = discount;
+        this.priceAfterDiscount = priceAfterDiscount;
         this.stock = stock;
         this.category = category;
         this.subcategory = subcategory;
@@ -63,11 +70,11 @@ public class ClothesDto {
         this.description = description;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -125,5 +132,21 @@ public class ClothesDto {
 
     public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    public BigDecimal getPriceAfterDiscount() {
+        return priceAfterDiscount;
+    }
+
+    public void setPriceAfterDiscount(BigDecimal priceAfterDiscount) {
+        this.priceAfterDiscount = priceAfterDiscount;
     }
 }

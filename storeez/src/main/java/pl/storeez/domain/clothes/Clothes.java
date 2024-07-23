@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import pl.storeez.domain.categories.Category;
 import pl.storeez.domain.categories.Subcategory;
 
+import java.math.BigDecimal;
+
 @Entity
 public class Clothes {
     @Id
@@ -12,7 +14,15 @@ public class Clothes {
     private String name;
     private String brand;
     private String description;
-    private float price;
+
+    @Column(precision = 10, scale = 2)
+    private BigDecimal price;
+
+    private int discount;
+
+    @Column(name = "price_after_discount", precision = 10, scale = 2)
+    private BigDecimal priceAfterDiscount;
+
     private int stock;
 
     @ManyToOne
@@ -64,11 +74,11 @@ public class Clothes {
         this.description = description;
     }
 
-    public float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -110,5 +120,21 @@ public class Clothes {
 
     public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    public BigDecimal getPriceAfterDiscount() {
+        return priceAfterDiscount;
+    }
+
+    public void setPriceAfterDiscount(BigDecimal priceAfterDiscount) {
+        this.priceAfterDiscount = priceAfterDiscount;
     }
 }
