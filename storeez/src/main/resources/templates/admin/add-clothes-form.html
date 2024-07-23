@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Add new clothes</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading">Add new clothes</h2>
+        <form th:action="@{/admin/add-clothes}" th:object="${clothes}" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" required>
+
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" th:field="*{brand}" required>
+
+            <label for="subcategory">Subcategory:</label>
+            <select id="subcategory" th:field="*{subcategory}" required>
+                <option th:each="subcategory : ${subcategories}" th:value="${subcategory.name}" th:text="${subcategory.name}"></option>
+            </select>
+
+            <label for="description">Description:</label>
+            <textarea id="description" th:field="*{description}" required></textarea>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" th:field="*{price}" step="0.01" required>
+
+            <label for="discount">Discount (%):</label>
+            <input type="number" id="discount" th:field="*{discount}" step="0.5">
+
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" th:field="*{stock}" step="1.0" required>
+
+            <label for="promoted">Promoted:</label>
+            <input type="checkbox" id="promoted" th:field="*{promoted}">
+
+            <label for="size">Size:</label>
+            <input type="text" id="size" th:field="*{size}" required>
+
+            <label for="color">Color:</label>
+            <input type="text" id="color" th:field="*{color}" required>
+
+            <label for="material">Material:</label>
+            <input type="text" id="material" th:field="*{material}" required>
+
+            <button type="submit">Add clothes</button>
+        </form>
+    </main>
+
+</div>
+
+</body>
+</html>
