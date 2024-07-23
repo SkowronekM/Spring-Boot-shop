@@ -10,7 +10,8 @@
 <div class="container">
     <main class="main-content" layout:fragment="content">
         <h2 class="list-heading">Add new clothes</h2>
-        <form th:action="@{/admin/add-clothes}" th:object="${clothes}" method="post">
+        <form th:action="@{/admin/add-clothes}" th:object="${clothes}" method="post" class="form-container">
+            <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" th:field="*{name}" required>
 
@@ -23,16 +24,16 @@
             </select>
 
             <label for="description">Description:</label>
-            <textarea id="description" th:field="*{description}" required></textarea>
+            <textarea id="description" th:field="*{description}" rows="10" required></textarea>
 
             <label for="price">Price:</label>
-            <input type="number" id="price" th:field="*{price}" step="0.01" required>
+            <input type="number" id="price" th:field="*{price}" step="0.01" min="0" required>
 
             <label for="discount">Discount (%):</label>
-            <input type="number" id="discount" th:field="*{discount}" step="0.5">
+            <input type="number" id="discount" th:field="*{discount}" step="0.5" min="0" max="70">
 
             <label for="stock">Stock:</label>
-            <input type="number" id="stock" th:field="*{stock}" step="1.0" required>
+            <input type="number" id="stock" th:field="*{stock}" step="1.0" min="0" required>
 
             <label for="promoted">Promoted:</label>
             <input type="checkbox" id="promoted" th:field="*{promoted}">
@@ -45,8 +46,10 @@
 
             <label for="material">Material:</label>
             <input type="text" id="material" th:field="*{material}" required>
+            </div>
 
-            <button type="submit">Add clothes</button>
+            <button type="submit" class="btn btn-primary">Add clothes</button>
+
         </form>
     </main>
 

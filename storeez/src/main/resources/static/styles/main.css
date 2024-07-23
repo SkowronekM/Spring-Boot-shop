@@ -27,7 +27,7 @@ a {
 
 .list-heading {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     color: #333;
 }
@@ -141,9 +141,6 @@ a {
 }
 
 /* Sekcja Polecane produkty */
-.featured-products {
-    padding: 2rem;
-}
 
 .product-grid {
     display: flex;
@@ -227,9 +224,6 @@ a {
 
 
 /* Sekcja Pojedynczy Produkt */
-.single-product {
-    padding: 2rem;
-}
 
 .single-product-heading {
     text-align: center;
@@ -394,6 +388,81 @@ a {
     margin-bottom: 12px;
     width: auto;
     font-weight: bold;
+}
+
+/* ADD CATEGORY FORM */
+
+/* Stylizacja formularza */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="checkbox"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[type="number"],
+.form-group select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.form-group textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
 

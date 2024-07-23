@@ -10,16 +10,20 @@
 <div class="container">
     <main class="main-content" layout:fragment="content">
         <h2 class="list-heading">Add new subcategory</h2>
-        <form th:action="@{/admin/add-subcategory}" th:object="${subcategory}" method="post">
+        <form th:action="@{/admin/add-subcategory}" th:object="${subcategory}" method="post" class="form-container">
+            <div class="form-group">
             <label for="name">Subcategory Name:</label>
-            <input type="text" id="name" th:field="*{name}" required>
+            <input type="text" id="name" th:field="*{name}" placeholder="e.g Hoodie" required>
+            </div>
 
+            <div class="form-group">
             <label for="category">Category:</label>
             <select id="category" th:field="*{categoryId}" required>
                 <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
             </select>
+            </div>
 
-            <button type="submit">Add subcategory</button>
+            <button type="submit" class="btn btn-primary">Add subcategory</button>
         </form>
     </main>
 
