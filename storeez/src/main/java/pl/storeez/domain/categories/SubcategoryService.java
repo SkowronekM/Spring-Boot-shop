@@ -3,6 +3,7 @@ package pl.storeez.domain.categories;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.storeez.domain.categories.dto.SubcategoryDto;
+import pl.storeez.domain.clothes.ClothesRepository;
 
 import java.util.Optional;
 
@@ -37,5 +38,4 @@ public class SubcategoryService {
         subcategoryDto.setId(subcategoryToSave.getId());
         return subcategoryDto;
     }
-
 }
