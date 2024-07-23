@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Manage subcategories</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading">Manage subcategories</h2>
+        <table class="category-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="subcategory : ${subcategories}">
+                <td th:text="${subcategory.id}"></td>
+                <td th:text="${subcategory.name}"></td>
+                <td>
+                    <a href="#" th:href="@{/admin/edit-subcategory/{id}(id=${subcategory.id})}" class="btn btn-secondary">Edit</a>
+                    <a href="#" th:href="@{/admin/delete-subcategory/{id}(id=${subcategory.id})}" class="btn btn-danger"
+                       onclick="return confirm('Are you sure you want to delete this subcategory?');">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+</body>
+</html>

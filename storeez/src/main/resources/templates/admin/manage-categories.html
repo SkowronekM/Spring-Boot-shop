@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Manage categories</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading">Manage categories</h2>
+        <table class="category-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="category : ${categories}">
+                <td th:text="${category.id}"></td>
+                <td th:text="${category.name}"></td>
+                <td>
+                    <a href="#" th:href="@{/admin/edit-category/{id}(id=${category.id})}" class="btn btn-secondary">Edit</a>
+                    <a href="#" th:href="@{/admin/delete-category/{id}(id=${category.id})}" class="btn btn-danger"
+                       onclick="return confirm('Are you sure you want to delete this category? All subcategories of ' +
+                        'this category and items will be removed.');">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </main>
+</div>
+</body>
+</html>
