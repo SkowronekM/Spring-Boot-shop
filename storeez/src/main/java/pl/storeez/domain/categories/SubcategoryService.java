@@ -20,6 +20,10 @@ public class SubcategoryService {
         return subcategoryRepository.findByNameIgnoreCase(name).map(SubcategoryDtoMapper::map);
     }
 
+    public Iterable<Subcategory> getAllSubcategories(){
+        return subcategoryRepository.findAll();
+    }
+
     @Transactional
     public SubcategoryDto addSubcategory(SubcategoryDto subcategoryDto) {
         Category category = categoryRepository.findById(subcategoryDto.getCategoryId())
