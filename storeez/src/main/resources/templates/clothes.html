@@ -39,9 +39,9 @@
                         </p>
                     </div>
                     <p class="single-product-price">
-                        <b>Price: </b> <span class="single-price" th:text="|${clothes.price} zł|">4750.50 zł</span>
-                        <span class="single-original-price" >5000.99 zł</span>
-                        <span class="single-discount" >5% off</span>
+                        <b>Price: </b> <span class="single-price" th:text="|${clothes.priceAfterDiscount} zł|">4750.50 zł</span>
+                        <span class="single-original-price" th:text="|${clothes.price} zł|">5000.99 zł</span>
+                        <span class="single-discount" th:text="|${clothes.discount}% off|">5% off</span>
                     </p>
                     <div class="single-product-actions">
                         <label for="quantity">
