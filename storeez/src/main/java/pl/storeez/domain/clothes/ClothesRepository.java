@@ -5,7 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ClothesRepository extends CrudRepository<Clothes, Long> {
     List<Clothes> findAllByPromotedIsTrue();
@@ -14,4 +13,5 @@ public interface ClothesRepository extends CrudRepository<Clothes, Long> {
     List<Clothes> findAllByCategoryNameIgnoreCase(@Param("categoryName") String categoryName);
 
     List<Clothes> findAllBySubcategoryNameIgnoreCase(String subcategoryName);
+    List<Clothes> findAllBySubcategoryId(Long subcategoryId);
 }
