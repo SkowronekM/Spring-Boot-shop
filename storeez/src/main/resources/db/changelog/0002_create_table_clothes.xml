@@ -14,7 +14,9 @@
             </column>
             <column name="brand" type="varchar(100)"></column>
             <column name="description" type="varchar(200)"></column>
-            <column name="price" type="float"></column>
+            <column name="price" type="decimal(10,2)"></column>
+            <column name="discount" type="int"></column>
+            <column name="price_after_discount" type="decimal(10,2)"></column>
             <column name="stock" type="int">
                 <constraints nullable="false"/>
             </column>
