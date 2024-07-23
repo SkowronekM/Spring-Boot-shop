@@ -31,7 +31,7 @@ public class SubcategoryManagementController {
     }
 
     @PostMapping("/add-subcategory")
-    public String addSubcategory(SubcategoryDto subcategoryDto, Category category, Model model, RedirectAttributes redirectAttributes) {
+    public String addSubcategory(SubcategoryDto subcategoryDto, RedirectAttributes redirectAttributes) {
         subcategoryService.addSubcategory(subcategoryDto);
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Subcategory %s has been added"
                 .formatted(subcategoryDto.getName()));
