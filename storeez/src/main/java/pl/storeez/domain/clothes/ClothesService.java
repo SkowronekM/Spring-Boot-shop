@@ -83,4 +83,10 @@ public class ClothesService {
         Clothes clothesToSave = ClothesDtoMapper.mapToEntity(clothesDto, subcategory);
         clothesRepository.save(clothesToSave);
     }
+
+    @Transactional
+    public void deleteClothesBySubcategory(Long id) {
+        List<Clothes> clothes = clothesRepository.findAllBySubcategoryId(id);
+        clothesRepository.deleteAll(clothes);
+    }
 }
