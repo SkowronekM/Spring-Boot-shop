@@ -7,6 +7,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.storeez.domain.categories.*;
 import pl.storeez.domain.categories.dto.CategoryDto;
 import pl.storeez.domain.clothes.ClothesService;
+import pl.storeez.domain.subcategories.Subcategory;
+import pl.storeez.domain.subcategories.SubcategoryRepository;
 
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class CategoryManagementController {
         categoryService.addCategory(category);
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Category %s has been added".formatted(category.getName()));
 
-        return "redirect:/admin";
+        return "redirect:/admin/manage-categories";
     }
 
     @GetMapping("/manage-categories")
@@ -63,7 +65,7 @@ public class CategoryManagementController {
         categoryRepository.save(category);
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Category name %s has been changed".formatted(category.getName()));
 
-        return "redirect:/admin";
+        return "redirect:/admin/manage-categories";
     }
 
     @GetMapping("/delete-category/{id}")
@@ -79,6 +81,6 @@ public class CategoryManagementController {
         categoryRepository.delete(category);
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Category %s and all links have been deleted".formatted(category.getName()));
 
-        return "redirect:/admin";
+        return "redirect:/admin/manage-categories";
     }
 }
