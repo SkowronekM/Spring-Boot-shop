@@ -9,6 +9,9 @@
 <body>
 <div class="container">
     <main class="main-content" layout:fragment="content">
+        <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+            Notifications
+        </p>
         <h2 class="list-heading">Manage subcategories</h2>
         <table class="category-table">
             <thead>
