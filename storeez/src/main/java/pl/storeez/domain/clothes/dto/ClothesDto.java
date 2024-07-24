@@ -17,11 +17,12 @@ public class ClothesDto {
     private String size;
     private String color;
     private String material;
+    private String image;
 
     public ClothesDto() {
     }
 
-    public ClothesDto(Long id, String name, String brand, String description, BigDecimal price, int discount, BigDecimal priceAfterDiscount, int stock, String category, String subcategory, boolean promoted, String size, String color, String material) {
+    public ClothesDto(Long id, String name, String brand, String description, BigDecimal price, int discount, BigDecimal priceAfterDiscount, int stock, String category, String subcategory, boolean promoted, String size, String color, String material, String image) {
         this.id = id;
         this.name = name;
         this.brand = brand;
@@ -36,6 +37,7 @@ public class ClothesDto {
         this.size = size;
         this.color = color;
         this.material = material;
+        this.image = image;
     }
 
     public Long getId() {
@@ -148,5 +150,13 @@ public class ClothesDto {
 
     public void setPriceAfterDiscount(BigDecimal priceAfterDiscount) {
         this.priceAfterDiscount = priceAfterDiscount;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

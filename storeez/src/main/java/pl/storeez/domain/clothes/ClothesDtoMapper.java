@@ -1,5 +1,6 @@
 package pl.storeez.domain.clothes;
 
+import pl.storeez.domain.clothes.dto.ClothesSaveDto;
 import pl.storeez.domain.subcategories.Subcategory;
 import pl.storeez.domain.clothes.dto.ClothesDto;
 
@@ -19,13 +20,13 @@ public class ClothesDtoMapper {
                 clothes.isPromoted(),
                 clothes.getSize(),
                 clothes.getColor(),
-                clothes.getMaterial()
+                clothes.getMaterial(),
+                clothes.getImage()
         );
     }
 
-    public static Clothes mapToEntity(ClothesDto clothesDto, Subcategory subcategory) {
+    public static Clothes mapToEntity(ClothesSaveDto clothesDto, Subcategory subcategory) {
         Clothes clothes = new Clothes();
-        clothes.setId(clothesDto.getId());
         clothes.setName(clothesDto.getName());
         clothes.setBrand(clothesDto.getBrand());
         clothes.setDescription(clothesDto.getDescription());

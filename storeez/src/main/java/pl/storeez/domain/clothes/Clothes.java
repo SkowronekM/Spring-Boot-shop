@@ -32,6 +32,7 @@ public class Clothes {
     private String size;
     private String color;
     private String material;
+    private String image;
 
     public boolean isPromoted() {
         return promoted;
@@ -135,5 +136,13 @@ public class Clothes {
 
     public void setPriceAfterDiscount(BigDecimal priceAfterDiscount) {
         this.priceAfterDiscount = priceAfterDiscount;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

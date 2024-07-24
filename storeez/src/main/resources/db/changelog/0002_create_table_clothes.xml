@@ -30,7 +30,7 @@
             <column name="size" type="varchar(50)"/>
             <column name="color" type="varchar(50)"/>
             <column name="material" type="varchar(255)"/>
-<!--            <column name="promotionPrice"></column>-->
+            <column name="image" type="VARCHAR(100)"/>
         </createTable>
 
     </changeSet>
