@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.storeez.domain.categories.CategoryService;
-import pl.storeez.domain.categories.SubcategoryService;
+import pl.storeez.domain.subcategories.SubcategoryService;
 import pl.storeez.domain.clothes.ClothesService;
 import pl.storeez.domain.clothes.dto.ClothesDto;
 

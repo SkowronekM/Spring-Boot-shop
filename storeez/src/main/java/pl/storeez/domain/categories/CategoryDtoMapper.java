@@ -1,7 +1,7 @@
 package pl.storeez.domain.categories;
 
 import pl.storeez.domain.categories.dto.CategoryDto;
-import pl.storeez.domain.categories.dto.SubcategoryDto;
+import pl.storeez.domain.subcategories.dto.SubcategoryDto;
 
 import java.util.List;
 import java.util.stream.Collectors;

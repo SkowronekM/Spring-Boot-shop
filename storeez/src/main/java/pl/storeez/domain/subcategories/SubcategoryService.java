@@ -1,8 +1,10 @@
-package pl.storeez.domain.categories;
+package pl.storeez.domain.subcategories;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.storeez.domain.categories.dto.SubcategoryDto;
+import pl.storeez.domain.categories.Category;
+import pl.storeez.domain.categories.CategoryRepository;
+import pl.storeez.domain.subcategories.dto.SubcategoryDto;
 
 import java.util.Optional;
 

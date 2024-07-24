@@ -1,6 +1,6 @@
 package pl.storeez.domain.clothes;
 
-import pl.storeez.domain.categories.Subcategory;
+import pl.storeez.domain.subcategories.Subcategory;
 import pl.storeez.domain.clothes.dto.ClothesDto;
 
 public class ClothesDtoMapper {

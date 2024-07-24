@@ -1,5 +1,7 @@
 package pl.storeez.domain.categories.dto;
 
+import pl.storeez.domain.subcategories.dto.SubcategoryDto;
+
 import java.util.List;
 
 public class CategoryDto {

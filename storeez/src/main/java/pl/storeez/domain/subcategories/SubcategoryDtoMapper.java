@@ -1,6 +1,6 @@
-package pl.storeez.domain.categories;
+package pl.storeez.domain.subcategories;
 
-import pl.storeez.domain.categories.dto.SubcategoryDto;
+import pl.storeez.domain.subcategories.dto.SubcategoryDto;
 
 public class SubcategoryDtoMapper {
 

@@ -1,4 +1,4 @@
-package pl.storeez.domain.categories.dto;
+package pl.storeez.domain.subcategories.dto;
 
 public class SubcategoryDto {
     private Long id;

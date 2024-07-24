@@ -2,9 +2,9 @@ package pl.storeez.domain.clothes;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.storeez.domain.categories.Subcategory;
+import pl.storeez.domain.subcategories.Subcategory;
 
-import pl.storeez.domain.categories.SubcategoryRepository;
+import pl.storeez.domain.subcategories.SubcategoryRepository;
 import pl.storeez.domain.clothes.dto.ClothesDto;
 
 import java.math.BigDecimal;

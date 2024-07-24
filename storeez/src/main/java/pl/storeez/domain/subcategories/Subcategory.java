@@ -1,6 +1,7 @@
-package pl.storeez.domain.categories;
+package pl.storeez.domain.subcategories;
 
 import jakarta.persistence.*;
+import pl.storeez.domain.categories.Category;
 
 @Entity
 public class Subcategory {

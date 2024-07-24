@@ -1,4 +1,4 @@
-package pl.storeez.domain.categories;
+package pl.storeez.domain.subcategories;
 
 import org.springframework.data.repository.CrudRepository;
 

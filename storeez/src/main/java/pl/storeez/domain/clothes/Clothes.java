@@ -1,8 +1,7 @@
 package pl.storeez.domain.clothes;
 
 import jakarta.persistence.*;
-import pl.storeez.domain.categories.Category;
-import pl.storeez.domain.categories.Subcategory;
+import pl.storeez.domain.subcategories.Subcategory;
 
 import java.math.BigDecimal;
 

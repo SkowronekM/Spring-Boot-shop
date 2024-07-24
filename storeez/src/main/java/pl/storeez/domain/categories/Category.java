@@ -1,6 +1,7 @@
 package pl.storeez.domain.categories;
 
 import jakarta.persistence.*;
+import pl.storeez.domain.subcategories.Subcategory;
 
 import java.util.List;
 
