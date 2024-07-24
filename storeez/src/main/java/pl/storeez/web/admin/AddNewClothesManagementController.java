@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.storeez.domain.categories.CategoryService;
+import pl.storeez.domain.clothes.dto.ClothesSaveDto;
 import pl.storeez.domain.subcategories.SubcategoryService;
 import pl.storeez.domain.clothes.ClothesService;
 import pl.storeez.domain.clothes.dto.ClothesDto;
@@ -24,7 +25,7 @@ public class AddNewClothesManagementController {
 
     @GetMapping("/add-clothes")
     public String addClothesForm(Model model) {
-        ClothesDto clothes = new ClothesDto();
+        ClothesSaveDto clothes = new ClothesSaveDto();
         model.addAttribute("clothes", clothes);
         model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("subcategories", subcategoryService.getAllSubcategories());
@@ -32,7 +33,7 @@ public class AddNewClothesManagementController {
     }
 
     @PostMapping("/add-clothes")
-    public String addClothes(ClothesDto clothesDto, RedirectAttributes redirectAttributes) {
+    public String addClothes(ClothesSaveDto clothesDto, RedirectAttributes redirectAttributes) {
 
         clothesService.addClothes(clothesDto);
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Item %s has been added".formatted(clothesDto.getName()));
