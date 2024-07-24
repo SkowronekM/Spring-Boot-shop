@@ -23,6 +23,7 @@ a {
 
 .main-content {
     flex: 1;
+    margin-bottom: 2rem;
 }
 
 .list-heading {
@@ -428,6 +429,7 @@ a {
 }
 
 .form-group input[type="number"],
+.form-group input[type="file"],
 .form-group select {
     padding: 0.5rem;
     border: 1px solid #ccc;
@@ -536,6 +538,7 @@ a {
 
     .single-product-image {
         max-width: 400px;
+        max-height: 500px;
         height: auto;
     }
 
