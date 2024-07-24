@@ -2,16 +2,15 @@ package pl.storeez.web.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.storeez.domain.categories.*;
-import pl.storeez.domain.categories.dto.SubcategoryDto;
+import pl.storeez.domain.subcategories.dto.SubcategoryDto;
 import pl.storeez.domain.clothes.ClothesService;
+import pl.storeez.domain.subcategories.Subcategory;
+import pl.storeez.domain.subcategories.SubcategoryRepository;
+import pl.storeez.domain.subcategories.SubcategoryService;
 
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -43,7 +42,7 @@ public class SubcategoryManagementController {
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Subcategory %s has been added"
                 .formatted(subcategoryDto.getName()));
 
-        return "redirect:/admin";
+        return "redirect:/admin/manage-subcategories";
     }
 
     @GetMapping("/manage-subcategories")
@@ -56,10 +55,20 @@ public class SubcategoryManagementController {
 
     @GetMapping("/edit-subcategory/{id}")
     public String editSubcategoryTable(@PathVariable Long id, Model model) {
-        Iterable<Subcategory> subcategories = subcategoryRepository.findAllById(Collections.singleton(id));
-        model.addAttribute("subcategories", subcategories);
+        Subcategory subcategory = subcategoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Subcategory not found"));
+        model.addAttribute("subcategory", subcategory);
 
         return "admin/edit-subcategory";
+    }
+
+    @PostMapping("/edit-subcategory")
+    public String editSubcategory(@ModelAttribute Subcategory subcategory, RedirectAttributes redirectAttributes) {
+        subcategoryRepository.save(subcategory);
+        redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Subcategory name %s has been changed"
+                .formatted(subcategory.getName()));
+
+        return "redirect:/admin/manage-subcategories";
     }
 
     @GetMapping("/delete-subcategory/{id}")
@@ -71,7 +80,7 @@ public class SubcategoryManagementController {
         subcategoryRepository.delete(subcategory);
         redirectAttributes.addFlashAttribute(AdminController.NOTIFICATION_ATTR, "Subcategory %s and all links have been deleted".formatted(subcategory.getName()));
 
-        return "redirect:/admin";
+        return "redirect:/admin/manage-subcategories";
     }
 
 }
