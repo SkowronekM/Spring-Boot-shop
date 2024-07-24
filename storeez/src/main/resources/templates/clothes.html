@@ -14,7 +14,10 @@
         <section class="single-product">
             <h2 class="list-heading" th:text="${heading}">Product Details</h2>
             <div class="single-product-detail">
-                <img src="../static/img/product1.jpg" alt="Product image" class="single-product-image" th:src="@{/img/product1.jpg}">
+                <img src="../static/img/product1.jpg"
+                     th:src="${clothes.image ne null} ? @{|/img/${clothes.image}|} : @{/img/product1.png}"
+                     alt="Product image"
+                     class="single-product-image">
                 <div class="single-product-info">
                     <h3 class="single-product-name" th:text="${clothes.name + ' ' + clothes.brand}">Hoodie Puma</h3>
                     <p class="single-product-desc">
