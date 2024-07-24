@@ -2,10 +2,12 @@ package pl.storeez.domain.clothes;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.storeez.domain.clothes.dto.ClothesSaveDto;
 import pl.storeez.domain.subcategories.Subcategory;
 
 import pl.storeez.domain.subcategories.SubcategoryRepository;
 import pl.storeez.domain.clothes.dto.ClothesDto;
+import pl.storeez.storage.FileStorageService;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -17,10 +19,12 @@ import java.util.Optional;
 public class ClothesService {
     private final ClothesRepository clothesRepository;
     private final SubcategoryRepository subcategoryRepository;
+    private final FileStorageService fileStorageService;
 
-    public ClothesService(ClothesRepository clothesRepository, SubcategoryRepository subcategoryRepository) {
+    public ClothesService(ClothesRepository clothesRepository, SubcategoryRepository subcategoryRepository, FileStorageService fileStorageService) {
         this.clothesRepository = clothesRepository;
         this.subcategoryRepository = subcategoryRepository;
+        this.fileStorageService = fileStorageService;
     }
 
     public List<ClothesDto> findAllPromotedClothes() {
@@ -72,7 +76,7 @@ public class ClothesService {
     }
 
     @Transactional
-    public void addClothes(ClothesDto clothesDto) {
+    public void addClothes(ClothesSaveDto clothesDto) {
         if (clothesDto.getSubcategory() == null || clothesDto.getSubcategory().isEmpty()) {
             throw new IllegalArgumentException("Subcategory cannot be null or empty");
         }
@@ -81,6 +85,11 @@ public class ClothesService {
                 .orElseThrow(() -> new RuntimeException("Subcategory not found"));
 
         Clothes clothesToSave = ClothesDtoMapper.mapToEntity(clothesDto, subcategory);
+
+        if (clothesDto.getImage() != null && !clothesDto.getImage().isEmpty()) {
+            String savedFileName = fileStorageService.saveImage(clothesDto.getImage());
+            clothesToSave.setImage(savedFileName);
+        }
         clothesRepository.save(clothesToSave);
     }
 
