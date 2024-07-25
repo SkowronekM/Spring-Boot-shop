@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="|Edit product ${clothes.name}|">Edit product</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+            Notifications
+        </p>
+        <h2 class="list-heading" th:text="|Edit product &quot${clothes.name}&quot|">Edit product</h2>
+
+        <form action="#" th:action="@{/admin/edit-product}" enctype="multipart/form-data" th:object="${clothes}" method="post" class="form-container">
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" required>
+
+                <label for="brand">Brand:</label>
+                <input type="text" id="brand" th:field="*{brand}" required>
+
+                <label for="subcategory">Subcategory:</label>
+                <select id="subcategory" th:field="*{subcategory}" required>
+                    <option th:each="subcategory : ${subcategories}" th:value="${subcategory.id}" th:text="${subcategory.name}"></option>
+                </select>
+
+                <label for="description">Description:</label>
+                <textarea id="description" th:field="*{description}" rows="10" required></textarea>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" th:field="*{price}" step="0.01" min="0" required>
+
+                <label for="discount">Discount (%):</label>
+                <input type="number" id="discount" th:field="*{discount}" step="0.5" min="0" max="70">
+
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" th:field="*{stock}" step="1.0" min="0" required>
+
+                <label for="promoted">Promoted:</label>
+                <input type="checkbox" id="promoted" th:field="*{promoted}">
+
+                <label for="size">Size:</label>
+                <input type="text" id="size" th:field="*{size}" required>
+
+                <label for="color">Color:</label>
+                <input type="text" id="color" th:field="*{color}" required>
+
+                <label for="material">Material:</label>
+                <input type="text" id="material" th:field="*{material}" required>
+
+                <label for="image">Photo:</label>
+                <input type="file" id="image" th:field="*{image}" accept="image/png, image/jpeg">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update clothes</button>
+        </form>
+
+    </main>
+</div>
+</body>
+</html>
