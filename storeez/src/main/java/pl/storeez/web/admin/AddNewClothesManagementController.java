@@ -8,7 +8,6 @@ import pl.storeez.domain.categories.CategoryService;
 import pl.storeez.domain.clothes.dto.ClothesSaveDto;
 import pl.storeez.domain.subcategories.SubcategoryService;
 import pl.storeez.domain.clothes.ClothesService;
-import pl.storeez.domain.clothes.dto.ClothesDto;
 
 @Controller
 @RequestMapping("/admin")
@@ -27,7 +26,6 @@ public class AddNewClothesManagementController {
     public String addClothesForm(Model model) {
         ClothesSaveDto clothes = new ClothesSaveDto();
         model.addAttribute("clothes", clothes);
-        model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("subcategories", subcategoryService.getAllSubcategories());
         return "admin/add-clothes-form";
     }
