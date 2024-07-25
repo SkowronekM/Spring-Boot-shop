@@ -507,7 +507,15 @@ a {
     background-color: #c82333;
 }
 
+.view-product-image {
+    max-width: 150px;
+    height: auto;
+    object-fit: cover;
+}
 
+.table-wrapper {
+    overflow-x: auto;
+}
 
 /* RESPONSIVE */
 @media only screen and (min-width: 992px) {
@@ -553,6 +561,19 @@ a {
 
     .single-product-actions {
         align-self: normal;
+    }
+}
+
+
+/* VIEW PRODUCT SMALL SCREEN */
+@media only screen and (max-width: 768px) {
+    .category-table th, .category-table td {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .category-table img {
+        max-width: 50px;
     }
 }
 
