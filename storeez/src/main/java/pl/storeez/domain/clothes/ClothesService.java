@@ -2,6 +2,7 @@ package pl.storeez.domain.clothes;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.storeez.domain.clothes.dto.ClothesEditDto;
 import pl.storeez.domain.clothes.dto.ClothesSaveDto;
 import pl.storeez.domain.subcategories.Subcategory;
 
@@ -25,6 +26,10 @@ public class ClothesService {
         this.clothesRepository = clothesRepository;
         this.subcategoryRepository = subcategoryRepository;
         this.fileStorageService = fileStorageService;
+    }
+
+    public Iterable<Clothes> findAllClothes() {
+        return clothesRepository.findAll();
     }
 
     public List<ClothesDto> findAllPromotedClothes() {
@@ -77,7 +82,7 @@ public class ClothesService {
 
     @Transactional
     public void addClothes(ClothesSaveDto clothesDto) {
-        if (clothesDto.getSubcategory() == null || clothesDto.getSubcategory().isEmpty()) {
+        if (clothesDto.getSubcategory() == null) {
             throw new IllegalArgumentException("Subcategory cannot be null or empty");
         }
 
@@ -94,8 +99,45 @@ public class ClothesService {
     }
 
     @Transactional
+    public void updateClothes(ClothesEditDto clothesDto) {
+        Subcategory subcategory = subcategoryRepository.findById(clothesDto.getSubcategory())
+                .orElseThrow(() -> new RuntimeException("Subcategory not found"));
+
+        Clothes clothesToSave;
+
+        if (clothesDto.getId() != null) {
+            clothesToSave = clothesRepository.findById(clothesDto.getId())
+                    .orElseThrow(() -> new RuntimeException("Clothes not found"));
+
+            clothesToSave.setName(clothesDto.getName());
+            clothesToSave.setBrand(clothesDto.getBrand());
+            clothesToSave.setDescription(clothesDto.getDescription());
+            clothesToSave.setPrice(clothesDto.getPrice());
+            clothesToSave.setPriceAfterDiscount(clothesToSave.getPriceAfterDiscount());
+            clothesToSave.setDiscount(clothesDto.getDiscount());
+            clothesToSave.setStock(clothesDto.getStock());
+            clothesToSave.setPromoted(clothesDto.isPromoted());
+            clothesToSave.setSize(clothesDto.getSize());
+            clothesToSave.setColor(clothesDto.getColor());
+            clothesToSave.setMaterial(clothesDto.getMaterial());
+            clothesToSave.setSubcategory(subcategory);
+
+            if (clothesDto.getImage() != null && !clothesDto.getImage().isEmpty()) {
+                String savedFileName = fileStorageService.saveImage(clothesDto.getImage());
+                clothesToSave.setImage(savedFileName);
+            }
+            clothesRepository.save(clothesToSave);
+        }
+    }
+
+    @Transactional
     public void deleteClothesBySubcategory(Long id) {
         List<Clothes> clothes = clothesRepository.findAllBySubcategoryId(id);
         clothesRepository.deleteAll(clothes);
+    }
+
+    @Transactional
+    public void deleteClothesById(Long id) {
+        clothesRepository.deleteById(id);
     }
 }
