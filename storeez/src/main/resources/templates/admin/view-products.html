@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>All products</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <p class="notification-bar" th:if="${notification}" th:text="${notification}">
+            Notifications
+        </p>
+        <h2 class="list-heading">All products</h2>
+        <div class="table-wrapper">
+            <table class="category-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Image</th>
+                    <th>Current price</th>
+                    <th>Discount</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cloth : ${clothes}">
+                    <td th:text="${cloth.id}"></td>
+                    <td th:text="${cloth.name}"></td>
+                    <td th:text="${cloth.brand}"></td>
+                    <td>
+                        <img src="../static/img/product1.jpg"
+                             th:src="${cloth.image ne null} ? @{|/img/${cloth.image}|} : @{/img/product1.png}"
+                             alt="Product image"
+                             class="view-product-image">
+                    </td>
+                    <td th:text="${cloth.discount ne 0} ? ${cloth.priceAfterDiscount} : ${cloth.price}"></td>
+                    <td th:text="${cloth.discount}"></td>
+                    <td>
+                        <a href="#" th:href="@{/admin/edit-product/{id}(id=${cloth.id})}" class="btn btn-secondary">Edit</a>
+                        <a href="#" th:href="@{/admin/delete-product/{id}(id=${cloth.id})}" class="btn btn-danger"
+                           onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+</div>
+</body>
+</html>
