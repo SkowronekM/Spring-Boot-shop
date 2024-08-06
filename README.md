@@ -1,6 +1,6 @@
 # Storeez
 
-Storeez is a comprehensive online sales platform that I am currently working on. This web application aims to provide a robust and user-friendly experience for managing a movie database.
+Storeez is an advanced online sales platform currently under development. The application is designed to streamline product and category management for a seamless e-commerce experience.
 
 ## Features
 
@@ -35,10 +35,12 @@ To run this application locally, follow these steps:
 
 2. **Navigate to the project directory:**
 
+   ```bash
    cd storeez
 
 3. **Build and run the application:**
 
+   ```bash
    ./mvnw spring-boot:run
 
 Alternatively, you can use an IDE such as IntelliJ IDEA or Eclipse to run the application directly.
